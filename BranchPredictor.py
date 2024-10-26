@@ -170,9 +170,9 @@ class Lab2PerceptronBP(BranchPredictor):
     cxx_class = "gem5::branch_prediction::Lab2PerceptronBP"
     cxx_header = "cpu/pred/lab2_bp.hh"
     
-    threshold = Param.Unsigned(128, "threshold for perceptron to be confident")
-    weightNum = Param.Unsigned(20, "number of weights in a perceptron")
-    perceptronNum = Param.Unsigned(2048, "number of perceptrons")
+    threshold = Param.Unsigned(129, "threshold for perceptron to be confident")
+    weightNum = Param.Unsigned(60, "number of weights in a perceptron")
+    perceptronNum = Param.Unsigned(8192, "number of perceptrons")
 
 class LocalBP(BranchPredictor):
     type = "LocalBP"

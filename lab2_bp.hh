@@ -33,14 +33,15 @@ class Lab2PerceptronBP : public BPredUnit {
 
   private:
     void updateGHR(ThreadID tid, bool taken);
-    inline unsigned getPerceptronIndex(ThreadID tid, Addr & pc);
+    inline unsigned getPerceptronIndex(ThreadID tid, Addr branch_addr);
+    bool prediction(int yield);
 
     struct Perceptron{
-      int weight[30] = {};
+      int weight[60] = {};
     }perceptrons[8192];
 
     // the table of Global History Register
-    std::vector<unsigned> ghr;
+    std::vector<unsigned long long> ghr;
 
     // the threshold for perceptron to be confident
     unsigned threshold;
@@ -56,6 +57,7 @@ class Lab2PerceptronBP : public BPredUnit {
     struct History{
       int yield;
       unsigned tempGHR;
+      unsigned long long branch_addr;
     };
 };
 
